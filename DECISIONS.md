@@ -36,4 +36,37 @@ Record a decision when you:
 
 ## Decisions
 
-*(ADRs are added below, in chronological order)*
+### ADR-001: Next.js 16 App Router
+- **Date:** 2026-04-05
+- **Decision:** Usar Next.js 16 con App Router como framework principal
+- **Alternatives considered:** Vite + React (prototipo actual), Astro, Remix
+- **Rationale:** SSR nativo para SEO local (crítico para restaurante en Doral), optimización automática de imágenes, Server Components, deploy zero-config en Vercel, API routes para formularios de contacto/reservación
+- **Status:** Accepted
+
+### ADR-002: Design System "Tropical Jungle" (NO Neon)
+- **Date:** 2026-04-05
+- **Decision:** Reemplazar el design system "Neon Jungle Report" por "Tropical Jungle" — verdes selva profundos, dorados cálidos, texturas naturales (bambú, madera, piedra volcánica)
+- **Alternatives considered:** Neon Jungle Report (prototipo original), Elegante/Premium minimalista, Moderno/Clean editorial, Fusión Cultural japonesa-peruana
+- **Rationale:** El concepto Neon no representa la marca del restaurante. La dirección tropical vibrante enfatiza lo "Jungle" de Sushi Jungle, conecta con la fusión japonesa-peruana, y crea una identidad visual única que diferencia de competidores en Doral
+- **Status:** Accepted
+
+### ADR-003: GSAP + ScrollTrigger + Lenis para animaciones
+- **Date:** 2026-04-05
+- **Decision:** Usar GSAP con ScrollTrigger y Lenis para scroll cinemático. NO usar Framer Motion
+- **Alternatives considered:** Framer Motion, CSS scroll-driven animations, Motion (motion.dev), vanilla JS IntersectionObserver
+- **Rationale:** GSAP + ScrollTrigger es el estándar de la industria para animaciones de scroll cinemáticas (usado en GTA VI, Jesko Jets, Apple). Permite video pinned, parallax multi-capa, máscaras SVG, y SplitText. Lenis proporciona smooth scrolling (usado en Terminal Industries). Framer Motion es más limitado para estos efectos
+- **Status:** Accepted
+
+### ADR-004: shadcn/ui + Tailwind CSS v4
+- **Date:** 2026-04-05
+- **Decision:** Usar shadcn/ui como sistema de componentes con Tailwind CSS v4
+- **Alternatives considered:** Material UI, Chakra UI, Radix directo, CSS Modules
+- **Rationale:** Ya usado en prototipo (App.tsx importa Toaster/TooltipProvider), excelente soporte dark theme, componentes como source code (customizables), oklch color format, ligero y sin runtime overhead
+- **Status:** Accepted
+
+### ADR-005: Deploy en Vercel
+- **Date:** 2026-04-05
+- **Decision:** Desplegar en Vercel
+- **Alternatives considered:** Netlify, Cloudflare Pages, AWS Amplify, self-hosted
+- **Rationale:** Plataforma nativa de Next.js, preview deployments para revisión del cliente, edge functions, analytics/speed insights built-in, CLI instalado, dominio personalizable
+- **Status:** Accepted
