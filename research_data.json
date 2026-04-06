@@ -1,0 +1,228 @@
+{
+  "restaurant": {
+    "name": "Sushi Jungle",
+    "tagline": "Experience Traditional Sushi with a Vibrant Peruvian Fusion Twist",
+    "concept": "Japanese-Latin (Peruvian) fusion sushi restaurant",
+    "address": "8373 NW 12th St, Doral, FL 33126",
+    "phone": "(305) 456-8466",
+    "email": "admin@sushijungle.com",
+    "website": "https://sushijungle.online",
+    "established": "~2024 (relatively new)",
+    "owner": "Marcelo (mentioned in reviews)"
+  },
+  "hours": {
+    "monday_thursday": "12:00 PM - 10:00 PM",
+    "friday": "12:00 PM - 11:00 PM",
+    "saturday": "1:00 PM - 11:00 PM",
+    "sunday": "1:00 PM - 9:00 PM"
+  },
+  "social_media": {
+    "instagram": {
+      "handle": "@sushijungle",
+      "url": "https://www.instagram.com/sushijungle/",
+      "bio": "If being a sushiholic is wrong, we don't want to be right! Join us at Sushi Jungle and enjoy your favorite rolls the way they're meant to be enjoyed. #miami",
+      "content_style": "High-quality food photography, dark moody backgrounds, vibrant food colors, cocktail shots, promotional reels for happy hour",
+      "hashtags": ["#sushi", "#restaurant", "#miamifood", "#foodie", "#miami", "#sushimiami", "#japanisefood", "#fyp"],
+      "content_types": ["Food photography", "Reels showing food preparation", "Happy hour promotions", "Signature roll features", "Cocktail showcases"]
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/p/Sushi-Jungle-100033536031005/",
+      "followers": 122,
+      "bio": "The best sushi in the world ALL WEEK! 12pm-10pm Delivery - Pickup - Catering",
+      "category": "Caterer",
+      "activity": "Low activity, mostly photos"
+    },
+    "tiktok": {
+      "handle": "@sushijungle",
+      "url": "https://www.tiktok.com/@sushijungle",
+      "followers": 407,
+      "likes": "18.8K",
+      "content": "Food videos, restaurant tours, sushi preparation"
+    }
+  },
+  "delivery_platforms": {
+    "uber_eats": {
+      "rating": 4.5,
+      "reviews": "700+",
+      "url": "https://www.ubereats.com/store/sushi-jungle/WvXpOOfWSYagNOG7HxYOVQ",
+      "most_liked": ["Jaguar Roll", "Flame Roll", "Hawaii Roll"]
+    },
+    "doordash": {
+      "url": "https://www.doordash.com/store/sushi-jungle-doral-30233433/"
+    },
+    "toast": {
+      "url": "https://book.toasttab.com/restaurants/sushi-jungle-8373-northwest-12th-street"
+    }
+  },
+  "review_platforms": {
+    "yelp": {
+      "rating": 4.2,
+      "reviews": 36,
+      "url": "https://www.yelp.com/biz/sushi-jungle-doral-4",
+      "photos": 142
+    },
+    "opentable": {
+      "rating": 4.8,
+      "reviews": 5,
+      "url": "https://www.opentable.com/r/sushi-jungle-doral",
+      "ratings_breakdown": {
+        "food": 4.8,
+        "service": 4.9,
+        "ambience": 4.9,
+        "value": 4.4
+      },
+      "noise_level": "Moderate",
+      "price_range": "$30 and under",
+      "dining_style": "Casual Dining"
+    }
+  },
+  "branding": {
+    "color_palette": {
+      "primary": "#1B4D2E (Deep Forest Green)",
+      "secondary": "#000000 (Black)",
+      "accent": "#F5A623 (Warm Amber/Gold - logo illumination)",
+      "text": "#FFFFFF (White)",
+      "highlight": "#4CAF50 (Bright Green - CTA buttons)",
+      "neon_pink": "#FF69B4 (Neon pink - 'Feed Me Sushi & Kiss Me' sign)",
+      "notes": "Dark, moody aesthetic with green as dominant brand color. Gold/amber for warmth and premium feel."
+    },
+    "typography": {
+      "logo_font": "Custom lowercase sans-serif, rounded, approachable",
+      "body_font": "Clean sans-serif",
+      "style": "Modern, bold headlines with clean body text"
+    },
+    "logo": {
+      "description": "Circular logo with sushi roll icon (green/white), lowercase 'sushijungle' text in white",
+      "style": "Minimalist, modern, jungle-themed with sushi element",
+      "illuminated_sign": "Wooden backlit sign with warm amber glow"
+    },
+    "visual_identity": {
+      "photography_style": "Dark, moody, professional food photography with dramatic lighting",
+      "food_presentation": "Artistic, colorful sushi rolls on dark slate/stone plates",
+      "interior_aesthetic": "Modern, tropical-inspired with neon signs, green plants, stone walls",
+      "signature_element": "'Feed Me Sushi & Kiss Me' neon sign - iconic Instagram photo spot",
+      "atmosphere": "Vibrant, trendy, 'Brickell vibes in Doral'"
+    },
+    "brand_voice": {
+      "tone": "Fun, playful, energetic yet sophisticated",
+      "personality": "Bold, adventurous, social media savvy",
+      "key_phrases": [
+        "If being a sushiholic is wrong, we don't want to be right!",
+        "Experience Traditional Sushi with a Vibrant Peruvian Fusion Twist",
+        "Bold flavors and premium ingredients",
+        "Refined vibes, unforgettable flavors",
+        "Where traditional sushi meets bold Peruvian fusion flavors",
+        "Sushi o'clock!",
+        "This is your sign to drop everything and head to Sushi Jungle"
+      ]
+    }
+  },
+  "menu_highlights": {
+    "signature_rolls": [
+      {"name": "Fortune Roll", "price": "$23", "description": "Soybean paper, avocado, masago, cream cheese, salmon tempura, topping of salmon, honey truffle oil, eel sauce, crispy rice, gold leaf, microgreens"},
+      {"name": "Safari Roll", "price": "$23", "description": "Soybean paper, salmon, crab salad, avocado, crunchy crab, cream cheese, topping of salmon, avocado, and sweet and sour sauce"},
+      {"name": "Fuji Roll", "price": "$23", "description": "Shrimp tempura, avocado, cream cheese, masago, sesame seeds, topping of avocado, chopped shrimp tempura with honey mustard, eel sauce, crispy rice"},
+      {"name": "Protein Roll", "price": "$24", "description": "Soybean paper riceless roll with tuna, salmon, avocado, crab salad, cream cheese, spicy mayo, eel sauce, crispy rice"},
+      {"name": "Tsunami Roll", "price": "$23", "description": "Soybean paper, masago, creamcheese, fried kani, bacon, shrimp tempura, crab salad, sweet and sour sauce, eel sauce, ebi shrimp"},
+      {"name": "Wild Truffle Roll", "price": "$24", "description": "Premium truffle-infused roll"},
+      {"name": "Jaguar Roll", "price": "$18", "description": "Shrimp tempura, avocado, cream cheese, plantain, spicy mayo, eel sauce"},
+      {"name": "Tiger Roll", "price": "$22", "description": "Shrimp tempura, crab salad, spicy mayo, topping of crab salad with crunchy crab, sweet and sour sauce"},
+      {"name": "Tropical Roll", "price": "$20", "description": "Soybean paper, shrimp tempura or salmon tempura, avocado, cream cheese, crab salad, plantain, spicy mayo, eel sauce, crispy rice"}
+    ],
+    "popular_appetizers": [
+      {"name": "Sushi Pizza", "price": "$17", "description": "Crispy rice topped with crab salad, salmon, avocado, wakame, masago, crispy rice, sesame seeds, eel sauce, sweet and sour sauce"},
+      {"name": "Tuna Tacos", "price": "$10"},
+      {"name": "Sweet & Spicy Edamame", "price": "$12"},
+      {"name": "Gyoza (Fried/Steamed)", "price": "~$13"}
+    ],
+    "peruvian_fusion": [
+      {"name": "Lomo Saltado", "price": "$25"},
+      {"name": "Pollo Saltado", "price": "$22"},
+      {"name": "Tiraditos (Salmon, Tuna, Ebi, Hamachi, Pulpo)", "price": "$17-$21"}
+    ],
+    "desserts": [
+      {"name": "Dubai Dessert", "price": "$26"},
+      {"name": "Chocolate Roll", "price": "$17", "description": "Chocolate cake rolled with icecream, nutella, and maria cookies, topping of strawberry, dulce de leche"},
+      {"name": "Matcha Roll", "price": "$21"},
+      {"name": "Thai Donuts", "price": "$13"}
+    ],
+    "signature_cocktails": [
+      {"name": "Tropical Sunset", "description": "Guest favorite"},
+      {"name": "Mojito Classic"},
+      {"name": "Happy Hour Special", "description": "2-for-1 cocktails, $5 wine and beer, Buy 1 get 1 50% off rolls"}
+    ]
+  },
+  "marketing_strategy": {
+    "happy_hour": {
+      "times": "4-7 PM (Instagram posts mention this range)",
+      "offers": ["Buy 1 get 1 50% off sushi rolls", "2-for-1 cocktails", "$5 wine and beer", "$12 appetizers"],
+      "promotion": "Heavily promoted on Instagram and UberEats"
+    },
+    "promotions": [
+      "Sushi Jungle Rewards program (earn points for free food)",
+      "Gift Cards available",
+      "Jungle Power Lunch special ($13.99-$16.99)",
+      "Happy Hour experiences on OpenTable",
+      "UberEats: Save 20% when ordering $50+"
+    ],
+    "content_strategy": {
+      "instagram_focus": "High-quality food reels, behind-the-scenes preparation, lifestyle shots with cocktails",
+      "influencer_marketing": "Featured by Miami food bloggers (peakacity, explorewithgg, mayitakeabite)",
+      "ugc": "Strong user-generated content from customers sharing food photos",
+      "hashtag_strategy": "Mix of local Miami hashtags and food-specific hashtags",
+      "posting_frequency": "Regular posts and reels, promotional content for happy hour"
+    },
+    "target_audience": {
+      "primary": "Miami/Doral locals aged 25-45",
+      "secondary": "Tourists and visitors to Miami area",
+      "psychographic": "Food enthusiasts, date night seekers, social media users, sushi lovers",
+      "demographic": "Mix of Latin and American clientele (bilingual marketing)"
+    }
+  },
+  "competitive_positioning": {
+    "usp": "Japanese-Peruvian fusion in a trendy, Instagram-worthy setting at accessible prices",
+    "differentiators": [
+      "Unique Peruvian-Japanese fusion concept (rare in Doral)",
+      "Iconic 'Feed Me Sushi & Kiss Me' neon sign photo spot",
+      "Premium presentation at mid-range prices",
+      "Strong happy hour program",
+      "Rewards program for loyal customers",
+      "Cozy, intimate atmosphere ('Brickell vibes in Doral')"
+    ],
+    "competitors": ["SuViche", "Pokekai Doral Yard", "Other Doral sushi restaurants"],
+    "positioning": "Premium casual - upscale experience at accessible prices"
+  },
+  "customer_sentiment": {
+    "positive_themes": [
+      "Fresh ingredients and quality",
+      "Excellent service (staff: Fabiana, Sofia, Laura mentioned frequently)",
+      "Beautiful, Instagram-worthy interior",
+      "Unique and flavorful rolls",
+      "Great cocktails",
+      "Romantic/date night atmosphere",
+      "Good value for quality"
+    ],
+    "areas_for_improvement": [
+      "Small space - can get crowded",
+      "No outdoor dining",
+      "Some language barrier with staff",
+      "Wait times can be long during peak hours",
+      "Portion sizes of some hot dishes"
+    ],
+    "key_quotes": [
+      "Hidden gem! Gives Brickell vibes but in Doral",
+      "The best sushi spot in Miami",
+      "Perfect for date nights",
+      "Unique, full of flavor and super filling"
+    ]
+  },
+  "web_presence_analysis": {
+    "current_website": "sushijungle.online (built on Owner.com platform)",
+    "strengths": ["Clean design", "Online ordering integrated", "Rewards program", "Menu visible"],
+    "weaknesses": ["Our Story page returns 404", "Limited brand storytelling", "Basic template design", "No blog/content marketing"],
+    "seo_keywords": ["best sushi Doral", "Japanese fusion Miami", "sushi near me Doral", "Peruvian Japanese fusion"],
+    "google_business": "Listed and active",
+    "reservation_platforms": ["OpenTable", "Toast Tab"],
+    "delivery_platforms": ["UberEats", "DoorDash"]
+  }
+}
