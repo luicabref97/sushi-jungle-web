@@ -43,14 +43,28 @@ export default function HomePage() {
         overlay
         layers={[
           {
-            speed: 0.5,
+            speed: 0.3,
             className: "z-0",
+            children: (
+              <Image
+                src="/images/generated/tropical-bg-parallax.png"
+                alt="Tropical jungle foliage background"
+                fill
+                className="object-cover scale-110"
+                sizes="100vw"
+                priority
+              />
+            ),
+          },
+          {
+            speed: 0.6,
+            className: "z-5",
             children: (
               <Image
                 src={IMAGES.interior}
                 alt="Sushi Jungle restaurant interior"
                 fill
-                className="object-cover"
+                className="object-cover opacity-40"
                 sizes="100vw"
                 priority
               />
@@ -61,10 +75,17 @@ export default function HomePage() {
             className: "z-10 flex items-center justify-center",
             children: (
               <div className="text-center space-y-6 px-4 max-w-4xl mx-auto">
-                <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl text-gold-warm tracking-tight">
+                <Image
+                  src={IMAGES.logoIcon}
+                  alt="Sushi Jungle logo"
+                  width={80}
+                  height={80}
+                  className="mx-auto rounded-full ring-2 ring-gold/30 mb-4"
+                />
+                <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl text-gold-warm tracking-tight drop-shadow-2xl">
                   {RESTAURANT.name}
                 </h1>
-                <p className="font-sans text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+                <p className="font-sans text-xl md:text-2xl text-foreground/80 max-w-2xl mx-auto">
                   {RESTAURANT.description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -113,8 +134,20 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/*  3. MENU PREVIEW — Signature Rolls                           */}
       {/* ============================================================ */}
-      <section className="py-24 px-4">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-24 px-4 overflow-hidden">
+        {/* Background: artistic sushi image with low opacity */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/generated/sushi-hero-artistic.png"
+            alt=""
+            fill
+            className="object-cover opacity-10"
+            sizes="100vw"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-background/80" />
+        </div>
+        <div className="relative z-10 max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
               <p className="text-gold text-sm font-medium uppercase tracking-widest mb-3">
@@ -160,7 +193,7 @@ export default function HomePage() {
               </Link>
             </div>
           </ScrollReveal>
-        </div>
+        </div>{/* closes relative z-10 */}
       </section>
 
       {/* ============================================================ */}
@@ -246,8 +279,20 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/*  6. HAPPY HOUR BANNER                                        */}
       {/* ============================================================ */}
-      <section className="py-24 px-4 gradient-earth">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative py-24 px-4 gradient-earth overflow-hidden">
+        {/* Cocktail background image */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 z-0 hidden lg:block">
+          <Image
+            src="/images/generated/cocktail-tropical.png"
+            alt=""
+            fill
+            className="object-cover opacity-20"
+            sizes="33vw"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        </div>
+        <div className="relative z-10 max-w-5xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
               <p className="text-gold text-sm font-medium uppercase tracking-widest mb-3">
@@ -282,7 +327,7 @@ export default function HomePage() {
               </Link>
             </div>
           </ScrollReveal>
-        </div>
+        </div>{/* closes relative z-10 */}
       </section>
 
       {/* ============================================================ */}
