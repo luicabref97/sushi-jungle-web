@@ -1,20 +1,18 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { gsap } from "@/lib/gsap-config";
+import { gsap, ScrollTrigger } from "@/lib/gsap-config";
 
 interface HorizontalScrollProps {
   children: React.ReactNode;
-  /** Optional className for the outer container */
   className?: string;
-  /** Optional className for the inner scrolling track */
   trackClassName?: string;
 }
 
 /**
- * Horizontal scroll section within vertical page scroll.
- * Content moves horizontally as the user scrolls vertically.
- * Reference: Apple product pages use this for feature showcases.
+ * Horizontal scroll section: content moves left as user scrolls down.
+ * FIX: Recalculates on resize, measures after paint.
+ * Reference: Apple product pages horizontal showcase.
  */
 export default function HorizontalScroll({
   children,
@@ -27,26 +25,41 @@ export default function HorizontalScroll({
   useEffect(() => {
     if (!containerRef.current || !trackRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const track = trackRef.current!;
-      const totalWidth = track.scrollWidth - window.innerWidth;
+    // Wait a frame so children have rendered and dimensions are accurate
+    const rafId = requestAnimationFrame(() => {
+      const ctx = gsap.context(() => {
+        const track = trackRef.current!;
+        const totalWidth = track.scrollWidth - window.innerWidth;
 
-      gsap.to(track, {
-        x: -totalWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: () => `+=${totalWidth}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-    }, containerRef);
+        if (totalWidth <= 0) return;
 
-    return () => ctx.revert();
+        gsap.to(track, {
+          x: -totalWidth,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: () => `+=${totalWidth}`,
+            scrub: 0.8,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      }, containerRef);
+
+      // Store for cleanup
+      (containerRef.current as any).__gsapCtx = ctx;
+    });
+
+    const handleResize = () => ScrollTrigger.refresh();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", handleResize);
+      (containerRef.current as any)?.__gsapCtx?.revert();
+    };
   }, []);
 
   return (

@@ -3,9 +3,16 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register GSAP plugins
-if (typeof window !== "undefined") {
+/**
+ * Ensure GSAP plugins are registered exactly once on the client.
+ * Called by LenisProvider at app startup — components don't need to call this.
+ */
+let isRegistered = false;
+
+export function registerGSAP() {
+  if (typeof window === "undefined" || isRegistered) return;
   gsap.registerPlugin(ScrollTrigger);
+  isRegistered = true;
 }
 
 export { gsap, ScrollTrigger };
@@ -22,11 +29,11 @@ export const GSAP_DEFAULTS = {
   /** Cinematic easing for parallax (GTA VI style) */
   easeCinematic: "none",
   /** Default reveal duration */
-  durationReveal: 1.2,
+  durationReveal: 1,
   /** Default stagger between elements */
-  stagger: 0.15,
+  stagger: 0.12,
   /** Default scroll trigger start */
-  triggerStart: "top 85%",
+  triggerStart: "top 80%",
   /** Default scroll trigger end */
-  triggerEnd: "bottom 15%",
+  triggerEnd: "bottom 20%",
 } as const;

@@ -1,38 +1,33 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { gsap, GSAP_DEFAULTS } from "@/lib/gsap-config";
+import { gsap } from "@/lib/gsap-config";
 import Image from "next/image";
 
 interface StickyMediaProps {
-  /** Image source URL */
   src: string;
-  /** Alt text for the image */
   alt: string;
-  /** Content that scrolls over the sticky media */
   children: React.ReactNode;
-  /** How much extra scroll distance (multiplier of viewport height) */
+  /** Extra scroll distance multiplier (default: 2 = 200vh of scroll) */
   scrollLength?: number;
-  /** Scale effect: image scales from this to 1 during scroll */
+  /** Image scales from this value to 1 (default: 1.2) */
   scaleFrom?: number;
-  /** Opacity effect on the media */
+  /** Fade the image at the end of scroll */
   fadeOut?: boolean;
-  /** Optional className for the container */
   className?: string;
 }
 
 /**
- * Sticky media section where an image stays pinned while content scrolls over it.
- * The image can scale and fade during scroll.
- * Reference: GTA VI uses pinned video sections with scroll-synced playback.
- * Reference: Jesko Jets uses sticky imagery with content reveals.
+ * Sticky section: image stays pinned and scales/fades while content overlays.
+ * FIX: Proper pin + timeline + scroll distance.
+ * Reference: GTA VI pinned video sections.
  */
 export default function StickyMedia({
   src,
   alt,
   children,
-  scrollLength = 3,
-  scaleFrom = 1.15,
+  scrollLength = 2,
+  scaleFrom = 1.2,
   fadeOut = true,
   className = "",
 }: StickyMediaProps) {
@@ -47,27 +42,28 @@ export default function StickyMedia({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: `+=${scrollLength * 100}%`,
-          scrub: 1,
+          end: () => `+=${window.innerHeight * scrollLength}`,
+          scrub: 0.8,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 
-      // Scale down from scaleFrom to 1
+      // Scale from scaleFrom → 1
       tl.fromTo(
         mediaRef.current,
         { scale: scaleFrom },
-        { scale: 1, ease: GSAP_DEFAULTS.easeCinematic },
+        { scale: 1, ease: "none", duration: 1 },
         0
       );
 
-      // Optionally fade out the media at the end
+      // Fade out at the end
       if (fadeOut) {
         tl.to(
           mediaRef.current,
-          { opacity: 0.3, ease: GSAP_DEFAULTS.easeCinematic },
-          0.7
+          { opacity: 0.2, ease: "none", duration: 0.4 },
+          0.6
         );
       }
     }, containerRef);
@@ -80,11 +76,8 @@ export default function StickyMedia({
       ref={containerRef}
       className={`relative w-full h-screen overflow-hidden ${className}`}
     >
-      {/* Sticky media background */}
-      <div
-        ref={mediaRef}
-        className="absolute inset-0 will-change-transform"
-      >
+      {/* Pinned media */}
+      <div ref={mediaRef} className="absolute inset-0 will-change-transform">
         <Image
           src={src}
           alt={alt}
@@ -93,11 +86,10 @@ export default function StickyMedia({
           sizes="100vw"
           priority
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0 bg-background/50" />
       </div>
 
-      {/* Scrollable content over the media */}
+      {/* Content over pinned media */}
       <div className="relative z-10 h-full flex items-center justify-center">
         {children}
       </div>

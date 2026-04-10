@@ -4,28 +4,19 @@ import { useRef, useEffect } from "react";
 import { gsap, GSAP_DEFAULTS } from "@/lib/gsap-config";
 
 interface RevealTextProps {
-  /** Text content to animate */
   text: string;
-  /** Animation type */
   variant?: "fade-up" | "split-words" | "fade-in";
-  /** Delay before animation starts */
   delay?: number;
-  /** Duration of the animation */
   duration?: number;
-  /** Stagger between elements (for split variants) */
   stagger?: number;
-  /** Custom className */
   className?: string;
-  /** HTML tag to render */
   as?: "h1" | "h2" | "h3" | "h4" | "p" | "span" | "div";
 }
 
 /**
  * Text reveal animation triggered by scroll.
- * Reference: Terminal Industries uses staggered text reveals.
- * Reference: GTA VI uses SplitText for bold heading reveals.
- *
- * For split-words: renders each word as a separate <span> in JSX (no innerHTML).
+ * FIX: Proper initial states, complete deps, CSS fallback.
+ * Reference: Terminal Industries staggered reveals, GTA VI SplitText.
  */
 export default function RevealText({
   text,
@@ -41,9 +32,9 @@ export default function RevealText({
   useEffect(() => {
     if (!ref.current) return;
 
-    const ctx = gsap.context(() => {
-      const el = ref.current!;
+    const el = ref.current;
 
+    const ctx = gsap.context(() => {
       if (variant === "fade-up") {
         gsap.fromTo(
           el,
@@ -79,16 +70,19 @@ export default function RevealText({
         );
       } else if (variant === "split-words") {
         const spans = el.querySelectorAll<HTMLSpanElement>("[data-word]");
+        if (spans.length === 0) return;
+
         gsap.fromTo(
           spans,
-          { y: 40, opacity: 0 },
+          { y: 50, opacity: 0, rotateX: -15 },
           {
             y: 0,
             opacity: 1,
+            rotateX: 0,
             duration: duration * 0.8,
             stagger,
             delay,
-            ease: GSAP_DEFAULTS.easeReveal,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: el,
               start: GSAP_DEFAULTS.triggerStart,
@@ -100,20 +94,18 @@ export default function RevealText({
     }, ref);
 
     return () => ctx.revert();
-  }, [variant, delay, duration, stagger]);
+  }, [variant, delay, duration, stagger, text]);
 
-  // For split-words, render each word as a span in JSX (safe, no innerHTML)
   if (variant === "split-words") {
     const words = text.split(" ");
     return (
-      // @ts-expect-error - dynamic tag with ref
-      <Tag ref={ref} className={className}>
+      <Tag ref={ref as React.Ref<never>} className={`perspective-[1000px] ${className}`}>
         {words.map((word, i) => (
           <span
-            key={i}
+            key={`${word}-${i}`}
             data-word
-            className="inline-block opacity-0"
-            style={{ transform: "translateY(40px)" }}
+            className="inline-block will-change-transform"
+            style={{ opacity: 0, transform: "translateY(50px) rotateX(-15deg)" }}
           >
             {word}
             {i < words.length - 1 && "\u00A0"}
@@ -124,8 +116,11 @@ export default function RevealText({
   }
 
   return (
-    // @ts-expect-error - dynamic tag with ref
-    <Tag ref={ref} className={className}>
+    <Tag
+      ref={ref as React.Ref<never>}
+      className={className}
+      style={{ opacity: 0, transform: variant === "fade-up" ? "translateY(60px)" : undefined }}
+    >
       {text}
     </Tag>
   );
