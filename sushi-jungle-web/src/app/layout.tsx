@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LenisProvider } from "@/components/scroll";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getRestaurantJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -25,6 +26,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sushijungle.online"),
   title: {
     default: "Sushi Jungle | Japanese-Peruvian Fusion in Doral, Miami",
     template: "%s | Sushi Jungle",
