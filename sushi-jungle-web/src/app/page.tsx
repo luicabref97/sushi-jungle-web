@@ -8,6 +8,7 @@ import {
   StickyMedia,
   ScrollReveal,
   HorizontalScroll,
+  ImageSequence,
 } from "@/components/scroll";
 import {
   RESTAURANT,
@@ -28,6 +29,17 @@ const SIGNATURE_ROLLS = [
   { name: "Jaguar Roll", price: 18, description: "Shrimp tempura, cream cheese, avocado & signature Jaguar sauce" },
   { name: "Tropical Roll", price: 20, description: "Fresh salmon, passion fruit, avocado & coconut flakes" },
 ] as const;
+
+/** Sushi roll preparation sequence — frames sync with scroll */
+const SUSHI_SEQUENCE_FRAMES = [
+  "/images/sushi-sequence/frame-01-prep.png",
+  "/images/sushi-sequence/frame-02-rolling-start.png",
+  "/images/sushi-sequence/frame-03-rolling-mid.png",
+  "/images/sushi-sequence/frame-04-roll-complete.png",
+  "/images/sushi-sequence/frame-05-cutting.png",
+  "/images/sushi-sequence/frame-06-toppings-falling.png",
+  "/images/sushi-sequence/frame-07-final-plated.png",
+];
 
 /* ------------------------------------------------------------------ */
 /*  Homepage                                                           */
@@ -107,6 +119,39 @@ export default function HomePage() {
           },
         ]}
       />
+
+      {/* ============================================================ */}
+      {/*  1.5 SUSHI ROLL SEQUENCE — Scroll-driven frame animation     */}
+      {/* ============================================================ */}
+      <ImageSequence
+        frames={SUSHI_SEQUENCE_FRAMES}
+        alt="Tropical Roll being prepared step by step"
+        scrollLength={4}
+        className="bg-earth-dark"
+      >
+        <div className="text-center max-w-2xl space-y-4">
+          <RevealText
+            text="Crafted with Passion"
+            variant="fade-up"
+            as="p"
+            className="text-gold text-sm font-medium uppercase tracking-widest"
+          />
+          <RevealText
+            text="Tropical Roll"
+            variant="fade-up"
+            as="h2"
+            delay={0.2}
+            className="font-heading text-4xl md:text-6xl text-gold-warm"
+          />
+          <RevealText
+            text="Scroll to watch it come to life"
+            variant="fade-up"
+            as="p"
+            delay={0.4}
+            className="text-muted-foreground text-lg"
+          />
+        </div>
+      </ImageSequence>
 
       {/* ============================================================ */}
       {/*  2. RATINGS TRUST BAR                                        */}
