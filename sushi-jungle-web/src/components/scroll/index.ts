@@ -5,3 +5,4 @@ export { default as StickyMedia } from "./StickyMedia";
 export { default as ScrollReveal } from "./ScrollReveal";
 export { default as HorizontalScroll } from "./HorizontalScroll";
 export { default as ImageSequence } from "./ImageSequence";
+export { default as ScrollVideo } from "./ScrollVideo";

@@ -9,6 +9,7 @@ import {
   ScrollReveal,
   HorizontalScroll,
   ImageSequence,
+  ScrollVideo,
 } from "@/components/scroll";
 import {
   RESTAURANT,
@@ -121,37 +122,25 @@ export default function HomePage() {
       />
 
       {/* ============================================================ */}
-      {/*  1.5 SUSHI ROLL SEQUENCE — Scroll-driven frame animation     */}
+      {/*  1.5 SUSHI ROLL VIDEO — Scroll-synced video (Apple style)    */}
       {/* ============================================================ */}
-      <ImageSequence
-        frames={SUSHI_SEQUENCE_FRAMES}
-        alt="Tropical Roll being prepared step by step"
+      <ScrollVideo
+        src="/images/sushi-scroll-video.mp4"
+        poster="/images/sushi-sequence/frame-01-prep.png"
         scrollLength={4}
-        className="bg-earth-dark"
       >
         <div className="text-center max-w-2xl space-y-4">
-          <RevealText
-            text="Crafted with Passion"
-            variant="fade-up"
-            as="p"
-            className="text-gold text-sm font-medium uppercase tracking-widest"
-          />
-          <RevealText
-            text="Tropical Roll"
-            variant="fade-up"
-            as="h2"
-            delay={0.2}
-            className="font-heading text-4xl md:text-6xl text-gold-warm"
-          />
-          <RevealText
-            text="Scroll to watch it come to life"
-            variant="fade-up"
-            as="p"
-            delay={0.4}
-            className="text-muted-foreground text-lg"
-          />
+          <p className="text-gold text-sm font-medium uppercase tracking-widest">
+            Crafted with Passion
+          </p>
+          <h2 className="font-heading text-4xl md:text-6xl text-gold-warm">
+            Tropical Roll
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Scroll to watch it come to life
+          </p>
         </div>
-      </ImageSequence>
+      </ScrollVideo>
 
       {/* ============================================================ */}
       {/*  2. RATINGS TRUST BAR                                        */}
